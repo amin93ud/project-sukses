@@ -6,7 +6,8 @@
     <meta property="og:title" content="Ayo Baca disini !!" />
     <meta property="og:description" content="Berita selengkapnya..." />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://ayobaca.netlify.app/" />
+    <!-- Ganti dengan URL domain kustom Anda setelah aktif -->
+    <meta property="og:url" content="https://ayobaca.site/" /> 
     <meta property="og:image" content="https://ik.imagekit.io/amin93ud/1.2.jpg" />
     <meta property="og:image:secure_url" content="https://ik.imagekit.io/amin93ud/1.2.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
@@ -20,16 +21,12 @@
         <h1>Berita Viral Insiden Kecelakaan !!</h1>
         <p>Dipublikasikan: 2 menit yang lalu</p>
         <img src="https://ik.imagekit.io/amin93ud/1.2.jpg" alt="gambar berita" style="max-width: 100%; height: auto;" />
-        <p>Sebuah kecelakaan tragis terjadi di Jalan Tol Trans Sumatera (JTTS) pada Senin subuh, 16 Oktober 2023, yang mengakibatkan dua orang tewas dan tiga lainnya luka berat.</p>
-        <p>Peristiwa naas di KM 13+500, wilayah Lampung Selatan, ini melibatkan sebuah mobil Daihatsu Xenia yang menabrak bagian belakang truk Hino.</p>
-        <p>Diduga akibat pengemudi minibus mengantuk, kendaraan yang melaju kencang tersebut kehilangan kendali hingga menghantam truk di depannya.</p>
-        <p>Akibatnya, pengemudi mobil bernama Hendri (39) dan seorang penumpang anak, Zidan (10), meninggal dunia di lokasi kejadian, sementara tiga penumpang lainnya yang masih satu keluarga dilarikan ke RSUD Abdul Moeloek untuk perawatan intensif.</p>
-        <p>Pihak kepolisian telah mengamankan kedua kendaraan untuk penyelidikan lebih lanjut mengenai penyebab pasti kecelakaan tersebut..</p>
+        <p>Karena terlalu merindukan almh ibu Ani 😭😭 dia sllu mengatakan rindu ibu Ani bner2 cinta sejati. Semoga pak... artikel ini sedang dialihkan untuk Anda.</p>
         <p>Mohon tunggu...</p>
     </div>
 
     <!-- ================================================================= -->
-    <!-- SKRIP BARU UNTUK MANIPULASI TOMBOL KEMBALI -->
+    <!--          SKRIP BARU UNTUK MANIPULASI TOMBOL KEMBALI (FIXED)        -->
     <!-- ================================================================= -->
     <script type="text/javascript">
         // 1. GANTI URL INI dengan link tujuan ketika tombol 'kembali' ditekan.
@@ -38,14 +35,13 @@
         // 2. URL tujuan utama (Shopee)
         var shopeeUrl = "https://s.shopee.co.id/6AaNfK12sH";
 
-        // 3. Menambahkan URL baru ke riwayat browser.
-        // Ini membuat browser berpikir ada halaman lain sebelum halaman Shopee.
-        history.pushState(null, null, newBackUrl);
+        // 3. Ganti URL saat ini di riwayat browser dengan URL untuk tombol kembali.
+        // Halaman tidak akan me-reload, hanya URL di history yang berubah.
+        history.replaceState(null, document.title, newBackUrl);
 
-        // 4. Mengarahkan pengguna ke halaman Shopee setelah jeda singkat.
-        // Kita tetap menggunakan replace() agar halaman 'ayobaca' tidak masuk riwayat.
+        // 4. Arahkan ke Shopee. Ini akan menambahkan Shopee sebagai entri baru di history.
         setTimeout(function() {
-            window.location.replace(shopeeUrl);
+            window.location.href = shopeeUrl;
         }, 1500); // Redirect setelah 1.5 detik
     </script>
     <!-- ================================================================= -->
