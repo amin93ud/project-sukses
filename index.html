@@ -1,74 +1,68 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-
     <title>Berita Viral Hari Ini !!</title>
-
-    <!-- ========= KODE META TAG PALING LENGKAP ========= -->
-
+    <!-- META TAGS -->
     <meta property="og:title" content="Ayo Baca disini !!" />
-
     <meta property="og:description" content="Berita selengkapnya..." />
-
     <meta property="og:type" content="article" />
-
-    <!-- GANTI DENGAN URL VERCEL BARU ANDA NANTI -->
-
+    <!-- URL akan otomatis disesuaikan dengan domain Netlify Anda -->
     <meta property="og:url" content="https://ayobaca.site/" />
-
-    <!-- OTORITAS GAMBAR: MENGAMBIL GAMBAR DARI PROYEK SENDIRI -->
-
     <meta property="og:image" content="https://ik.imagekit.io/amin93ud/1.2.jpg" />
-
     <meta property="og:image:secure_url" content="https://ik.imagekit.io/amin93ud/1.2.jpg" />
-
     <meta property="og:image:type" content="image/jpeg" />
-
     <meta property="og:image:width" content="1200" />
-
     <meta property="og:image:height" content="1200" />
-
-    <!-- ================================================================ -->
-
 </head>
-
 <body>
-
-    <!-- OTORITAS KONTEN: MEMBUAT HALAMAN TERLIHAT ASLI -->
-
-    <div style="padding: 20px; font-family: Arial, sans-serif;">
-
+    <!-- KONTEN BERITA -->
+    <div id="mainContent" style="padding: 20px; font-family: Arial, sans-serif;">
         <h1>Berita Viral Insiden Kecelakaan !!</h1>
-
         <p>Dipublikasikan: 2 menit yang lalu</p>
-
         <img src="https://ik.imagekit.io/amin93ud/1.2.jpg" alt="gambar berita" style="max-width: 100%; height: auto;" />
-
-        <<p>Sebuah kecelakaan tragis terjadi di Jalan Tol Trans Sumatera (JTTS) pada Senin subuh, 16 Oktober 2023, yang mengakibatkan dua orang tewas dan tiga lainnya luka berat.</p>
+        <p>Sebuah kecelakaan tragis terjadi di Jalan Tol Trans Sumatera (JTTS) pada Senin subuh, 16 Oktober 2023, yang mengakibatkan dua orang tewas dan tiga lainnya luka berat.</p>
         <p>Peristiwa naas di KM 13+500, wilayah Lampung Selatan, ini melibatkan sebuah mobil Daihatsu Xenia yang menabrak bagian belakang truk Hino.</p>
         <p>Diduga akibat pengemudi minibus mengantuk, kendaraan yang melaju kencang tersebut kehilangan kendali hingga menghantam truk di depannya.</p>
         <p>Akibatnya, pengemudi mobil bernama Hendri (39) dan seorang penumpang anak, Zidan (10), meninggal dunia di lokasi kejadian, sementara tiga penumpang lainnya yang masih satu keluarga dilarikan ke RSUD Abdul Moeloek untuk perawatan intensif.</p>
         <p>Pihak kepolisian telah mengamankan kedua kendaraan untuk penyelidikan lebih lanjut mengenai penyebab pasti kecelakaan tersebut..</p>
         <p>Mohon tunggu...</p>
-
     </div>
 
-    <!-- OTORITAS WAKTU: REDIRECT YANG DITUNDA -->
+    <!-- HALAMAN KEDUA (TERSEMBUNYI) -->
+    <div id="secondPage" style="display:none; padding:20px; font-family:Arial, sans-serif; text-align:center; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+        <h2 style="font-size:24px; margin-bottom:20px;">Klik di mana saja untuk melanjutkan...</h2>
+        <p style="font-size:18px; color:#666;">Anda akan segera diarahkan ke halaman berikutnya</p>
+        <div style="margin-top:30px;">
+            <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#007bff" stroke-width="2">
+                <path d="M12 2L12 14M12 14L18 8M12 14L6 8"/>
+                <rect x="3" y="16" width="18" height="6" rx="1" fill="#007bff" opacity="0.2"/>
+            </svg>
+        </div>
+    </div>
 
     <script type="text/javascript">
-
+        // URL tujuan akhir - GANTI DENGAN URL ANDA
+        const FINAL_DESTINATION = 'https://www.profitableratecpm.com/vfks8tgy5?key=63e216db83e2ccc5db63a4e9a6b45055';
+        
+        // Setelah 1.5 detik, buka Shopee di tab baru dan tampilkan halaman kedua
         setTimeout(function() {
-
-            window.location.replace("https://s.shopee.co.id/6AaNfK12sH");
-
-        }, 1500); // Redirect setelah 1.5 detik
-
+            // Buka Shopee di tab baru
+            window.open('https://s.shopee.co.id/6AaNfK12sH', '_blank');
+            
+            // Tampilkan halaman kedua
+            document.getElementById('mainContent').style.display = 'none';
+            document.getElementById('secondPage').style.display = 'flex';
+            
+            // Tambahkan event listener untuk klik di mana saja
+            document.body.style.cursor = 'pointer';
+            document.body.style.margin = '0';
+            document.body.style.padding = '0';
+            
+            // Event listener untuk redirect ke halaman final
+            document.body.addEventListener('click', function() {
+                window.location.href = FINAL_DESTINATION;
+            });
+        }, 1500);
     </script>
-
-    <!-- ================================================================= -->
-
 </body>
-
 </html>
