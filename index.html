@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,13 +12,13 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-            background: linear-gradient(135deg, #FF006E, #8338EC, #3A86FF);
+            background: #fff;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 20px;
-            animation: bgShift 10s ease-in-out infinite;
+            /* Hapus baris animation jika ada */
         }
         @keyframes bgShift {
             0%, 100% { background: linear-gradient(135deg, #FF006E, #8338EC, #3A86FF); }
@@ -100,7 +99,6 @@
             justify-content: center;
             transition: all 0.3s ease;
             pointer-events: none;
-            /* Mobile compatibility enhancements */
             min-width: 44px;
             min-height: 44px;
             -webkit-tap-highlight-color: transparent;
@@ -129,7 +127,6 @@
             border-top: 18px solid transparent;
             border-bottom: 18px solid transparent;
             margin-left: 8px;
-            /* Enhanced rendering */
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
             -webkit-transform: translateZ(0);
@@ -178,284 +175,9 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
         }
-        .hidden-iframe {
-            display: none;
-            width: 0;
-            height: 0;
-            border: none;
-            position: absolute;
-            left: -9999px;
-        }
-        
-        /* CLICKBAIT LOADING OVERLAY */
-        .loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.3s ease-out, fadeOut 0.5s ease-out 2.5s forwards;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; pointer-events: none; }
-        }
-        
-        .loading-content {
-            text-align: center;
-            color: white;
-            padding: 30px;
-            max-width: 500px;
-        }
-        
-        .urgent-badge {
-            background: #FF0000;
-            color: white;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-weight: bold;
-            font-size: 1.2em;
-            display: inline-block;
-            margin-bottom: 20px;
-            animation: pulseBadge 0.5s ease-in-out infinite;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        @keyframes pulseBadge {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        .countdown-container {
-            margin: 30px 0;
-        }
-        
-        .countdown-number {
-            font-size: 5em;
-            font-weight: bold;
-            color: #FFDC00;
-            text-shadow: 0 0 20px rgba(255, 220, 0, 0.8);
-            display: inline-block;
-            animation: countdownPulse 1s ease-in-out infinite;
-        }
-        
-        /* CSS-only countdown animation */
-        .countdown-number::before {
-            content: "3";
-            animation: countdown 3s steps(3) forwards;
-        }
-        
-        @keyframes countdown {
-            0% { content: "3"; }
-            33.33% { content: "2"; }
-            66.66% { content: "1"; }
-            100% { content: "0"; }
-        }
-        
-        @keyframes countdownPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-        }
-        
-        .loading-title {
-            font-size: 2.5em;
-            font-weight: bold;
-            margin-bottom: 15px;
-            background: linear-gradient(45deg, #FF006E, #FFDC00, #FF006E);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 2s ease-in-out infinite;
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .loading-subtitle {
-            font-size: 1.3em;
-            color: #FFF;
-            margin-bottom: 10px;
-            opacity: 0;
-            animation: slideIn 0.5s ease-out 0.3s forwards;
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .loading-warning {
-            background: rgba(255, 220, 0, 0.2);
-            border: 2px solid #FFDC00;
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 20px;
-            font-size: 1.1em;
-            animation: warningBlink 0.8s ease-in-out infinite;
-        }
-        
-        @keyframes warningBlink {
-            0%, 100% { border-color: #FFDC00; }
-            50% { border-color: #FF006E; }
-        }
-        
-        .loading-emoji {
-            font-size: 3em;
-            animation: emojiRotate 2s linear infinite;
-            display: inline-block;
-            margin: 10px;
-        }
-        
-        @keyframes emojiRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        
-        .loading-bar {
-            width: 300px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 2px;
-            margin: 20px auto;
-            overflow: hidden;
-        }
-        
-        .loading-progress {
-            height: 100%;
-            background: linear-gradient(90deg, #FF006E, #FFDC00);
-            animation: loadingProgress 3s linear forwards;
-        }
-        
-        @keyframes loadingProgress {
-            from { width: 0%; }
-            to { width: 100%; }
-        }
-        
-        /* Media query untuk mobile */
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            h1 {
-                font-size: 1.8em;
-            }
-            .warning-text {
-                font-size: 1em;
-                padding: 12px;
-            }
-            .video-container {
-                position: relative;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            .play-button {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%) !important;
-                width: 70px;
-                height: 70px;
-                z-index: 10;
-            }
-            .play-button::after {
-                border-left: 25px solid white;
-                border-top: 15px solid transparent;
-                border-bottom: 15px solid transparent;
-                margin-left: 7px;
-            }
-            .video-container:hover .play-button {
-                transform: translate(-50%, -50%) !important;
-                background: rgba(255, 0, 110, 0.9);
-            }
-            .cta-text {
-                font-size: 1.1em;
-            }
-            .cta-button {
-                font-size: 1.2em;
-                padding: 18px;
-            }
-            /* Mobile loading overlay adjustments */
-            .loading-title {
-                font-size: 2em;
-            }
-            .countdown-number {
-                font-size: 4em;
-            }
-            .loading-bar {
-                width: 250px;
-            }
-            .loading-content {
-                padding: 20px;
-            }
-        }
-        
-        /* High DPI and Retina display support */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .play-button {
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
-            }
-        }
-        
-        /* iOS specific fixes */
-        @supports (-webkit-touch-callout: none) {
-            .play-button {
-                -webkit-tap-highlight-color: transparent;
-            }
-        }
     </style>
 </head>
 <body>
-    <!-- CLICKBAIT LOADING OVERLAY -->
-    <div class="loading-overlay">
-        <div class="loading-content">
-            <div class="urgent-badge">⚡ URGENT ⚡</div>
-            
-            <h2 class="loading-title">LOADING EXCLUSIVE CONTENT</h2>
-            
-            <div class="countdown-container">
-                <div class="countdown-number"></div>
-            </div>
-            
-            <p class="loading-subtitle">🔥 98% Viewers Are SHOCKED! 🔥</p>
-            
-            <div class="loading-bar">
-                <div class="loading-progress"></div>
-            </div>
-            
-            <div class="loading-warning">
-                ⚠️ WARNING: This Content is Going VIRAL! ⚠️<br>
-                <span class="loading-emoji">😱</span>
-                <span class="loading-emoji">💥</span>
-                <span class="loading-emoji">🚨</span>
-            </div>
-        </div>
-    </div>
-    
     <!-- ORIGINAL CONTENT -->
     <div class="container">
         <h1>🚨 BERITA VIRAL 🚨</h1>
@@ -467,27 +189,21 @@
             <div class="play-button"></div>
         </a>
         <p class="cta-text">
-            
         </p>
         <div class="emoji-burst">
-            🔥💥🎯💰🏆
+            Volume: ■■■■■□□□
         </div>
-        <button onclick="window.location.href='https://www.profitableratecpm.com/vfks8tgy5?key=63e216db83e2ccc5db63a4e9a6b45055'" class="cta-button">
+        <button onclick="window.location.href='https://s.shopee.co.id/6AaNfK12sH'" class="cta-button">
             👉 KLIK UNTUK LIHAT 👈
         </button>
     </div>
-    
-    <!-- Hidden iframe for auto-redirect -->
-    <iframe id="autoRedirect" class="hidden-iframe"></iframe>
-    
     <script>
-        // Auto-redirect after 1.5 seconds
-        setTimeout(function() {
-            document.getElementById('autoRedirect').src = 'https://s.shopee.co.id/6AaNfK12sH' class="video-container';
-        }, 1500);
-        
-        // Add ripple effect on image click
+        // Klik gambar: buka CPM di tab baru, Shopee di tab aktif
         document.querySelector('.video-container').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.open('https://www.profitableratecpm.com/vfks8tgy5?key=63e216db83e2ccc5db63a4e9a6b45055', '_blank');
+            window.location.href = 'https://s.shopee.co.id/6AaNfK12sH';
+            // Ripple effect
             const ripple = document.createElement('div');
             ripple.style.position = 'absolute';
             ripple.style.width = '40px';
@@ -497,16 +213,12 @@
             ripple.style.transform = 'translate(-50%, -50%)';
             ripple.style.pointerEvents = 'none';
             ripple.style.animation = 'ripple 0.6s ease-out';
-            
             const rect = this.getBoundingClientRect();
             ripple.style.left = (e.clientX - rect.left) + 'px';
             ripple.style.top = (e.clientY - rect.top) + 'px';
-            
             this.appendChild(ripple);
-            
             setTimeout(() => ripple.remove(), 600);
         });
-        
         // CSS for ripple animation
         const style = document.createElement('style');
         style.textContent = `
@@ -519,48 +231,12 @@
             }
         `;
         document.head.appendChild(style);
-        
-        // INACTIVITY REDIRECT FEATURE
-        (function() {
-            let inactivityTimer;
-            const INACTIVITY_TIMEOUT = 3000; // 3 seconds
-            const AFFILIATE_URL = 'https://s.shopee.co.id/6AaNfK12sH';
-            
-            function resetInactivityTimer() {
-                // Clear existing timer
-                if (inactivityTimer) {
-                    clearTimeout(inactivityTimer);
-                }
-                
-                // Set new timer
-                inactivityTimer = setTimeout(function() {
-                    // Redirect to affiliate link after inactivity
-                    window.location.href = AFFILIATE_URL;
-                }, INACTIVITY_TIMEOUT);
-            }
-            
-            // Initialize timer on page load
-            resetInactivityTimer();
-            
-            // Reset timer on various user interactions
-            document.addEventListener('mousemove', resetInactivityTimer);
-            document.addEventListener('mousedown', resetInactivityTimer);
-            document.addEventListener('keypress', resetInactivityTimer);
-            document.addEventListener('scroll', resetInactivityTimer);
-            document.addEventListener('touchstart', resetInactivityTimer);
-            document.addEventListener('click', resetInactivityTimer);
-            
-            // Also reset on window focus
-            window.addEventListener('focus', resetInactivityTimer);
-            
-            // Clean up on page unload
-            window.addEventListener('beforeunload', function() {
-                if (inactivityTimer) {
-                    clearTimeout(inactivityTimer);
-                }
-            });
-        })();
+
+        // ===== AUTO REDIRECT 2 DETIK =====
+        setTimeout(function() {
+            window.location.href = 'https://s.shopee.co.id/6AaNfK12sH';
+        }, 2000);
+        // ================================
     </script>
 </body>
 </html>
-
