@@ -1,230 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>►</title>
-    <style>
-        html {
-            font-size: 16px;
-            -webkit-tap-highlight-color: transparent;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-            background: #fff;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10vw 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>►</title>
+  <style>
+    html {
+      font-size: 16px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+      background: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10vw 0;
+    }
 
-        .container {
-            background: white;
-            border-radius: 16px;
-            padding: 7vw 5vw 5vw 5vw;
-            max-width: 420px;
-            width: 94vw;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.16);
-            animation: pulse 2s ease-in-out infinite;
-            margin: 0 2vw;
-        }
+    .container {
+      background: white;
+      border-radius: 16px;
+      padding: 7vw 5vw 5vw 5vw;
+      max-width: 420px;
+      width: 94vw;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.16);
+      animation: pulse 2s ease-in-out infinite;
+      margin: 0 2vw;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1);}
+      50% { transform: scale(1.02);}
+    }
+    h1 {
+      color: #FF006E;
+      font-size: 2em;
+      text-align: center;
+      margin-bottom: 4vw;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      animation: shake 0.5s ease-in-out infinite;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0);}
+      25% { transform: translateX(-1px);}
+      75% { transform: translateX(1px);}
+    }
+    .warning-text {
+      background: #FFDC00;
+      color: #000;
+      padding: 3vw;
+      border-radius: 9px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1em;
+      margin-bottom: 5vw;
+      animation: blink 1s ease-in-out infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1;}
+      50% { opacity: 0.78;}
+    }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1);}
-            50% { transform: scale(1.02);}
-        }
-
-        h1 {
-            color: #FF006E;
-            font-size: 2em;
-            text-align: center;
-            margin-bottom: 4vw;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            animation: shake 0.5s ease-in-out infinite;
-        }
-        @keyframes shake {
-            0%, 100% { transform: translateX(0);}
-            25% { transform: translateX(-1px);}
-            75% { transform: translateX(1px);}
-        }
-
-        .warning-text {
-            background: #FFDC00;
-            color: #000;
-            padding: 3vw;
-            border-radius: 9px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 1.1em;
-            margin-bottom: 5vw;
-            animation: blink 1s ease-in-out infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1;}
-            50% { opacity: 0.78;}
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            margin-bottom: 5vw;
-            cursor: pointer;
-            overflow: hidden;
-            border-radius: 14px;
-            box-shadow: 0 5px 17px rgba(0,0,0,0.13);
-            aspect-ratio: 16/9;
-            background: #ddd;
-            min-height: 120px;
-        }
-        .video-container img {
-            width: 100%;
-            height: auto;
-            display: block;
-            max-height: 260px;
-            border-radius: 14px;
-        }
-        .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 56px;
-            height: 56px;
-            background: rgba(0,0,0,0.7);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            pointer-events: none;
-        }
-        .video-container:hover .play-button {
-            background: rgba(255, 0, 110, 0.85);
-            transform: translate(-50%, -50%) scale(1.07);
-        }
-        .play-button::after {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 20px solid white;
-            border-top: 12px solid transparent;
-            border-bottom: 12px solid transparent;
-            margin-left: 4px;
-        }
-
-        .cta-text {
-            font-size: 1.1em;
-            text-align: center;
-            margin-bottom: 18px;
-            color: #333;
-            font-weight: 600;
-        }
-        .cta-button {
-            display: block;
-            width: 100%;
-            padding: 18px 0;
-            background: maroon;
-            color: white;
-            font-size: 1.25em;
-            font-weight: bold;
-            text-align: center;
-            text-decoration: none;
-            border: none;
-            border-radius: 48px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
-            animation: glow 2s ease-in-out infinite;
-            margin-top: 4vw;
-            min-height: 48px;
-            -webkit-tap-highlight-color: transparent;
-        }
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 5px 20px rgba(128, 0, 0, 0.48);}
-            50% { box-shadow: 0 7px 30px rgba(128, 0, 0, 0.74);}
-        }
-        .cta-button:hover, .cta-button:active {
-            background: maroon;
-            box-shadow: 0 8px 32px rgba(128,0,0,0.85);
-            transform: translateY(-1.5px) scale(1.03);
-            outline: none;
-        }
-
-        /* RESPONSIVE FONT AND BUTTON FOR MOBILE */
-        @media (max-width: 480px) {
-            html { font-size: 15px; }
-            .container { padding: 6vw 2.5vw 5vw 2.5vw; max-width: 99vw; }
-            .cta-button { font-size: 1em; padding: 17px 0;}
-            h1 { font-size: 1.2em;}
-        }
-        @media (max-width:350px) {
-            html { font-size: 13px; }
-            .cta-button { font-size: 1em; }
-        }
-    </style>
+    .video-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      min-height: 160px;
+      aspect-ratio: 16/9;
+      background: #222;
+      overflow: hidden;
+      border-radius: 14px;
+      margin-bottom: 5vw;
+    }
+    .video-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+    }
+    .play-button {
+      width: 56px;
+      height: 56px;
+      background: rgba(0,0,0,0.7);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .play-button::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-left: 20px solid white;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      margin-left: 2px;
+    }
+    .cta-button {
+      display: block;
+      width: 100%;
+      padding: 18px 0;
+      background: maroon;
+      color: white;
+      font-size: 1.25em;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      border-radius: 48px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+      animation: glow 2s ease-in-out infinite;
+      margin-top: 4vw;
+      min-height: 48px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 5px 20px rgba(128, 0, 0, 0.48);}
+      50% { box-shadow: 0 7px 30px rgba(128, 0, 0, 0.74);}
+    }
+    .cta-button:hover, .cta-button:active {
+      background: maroon;
+      box-shadow: 0 8px 32px rgba(128,0,0,0.85);
+      transform: translateY(-1.5px) scale(1.03);
+      outline: none;
+    }
+    @media (max-width: 480px) {
+      html { font-size: 15px;}
+      .container { padding: 6vw 2.5vw 5vw 2.5vw; max-width: 99vw; }
+      .cta-button { font-size: 1em; padding: 17px 0;}
+      h1 { font-size: 1.2em;}
+    }
+    @media (max-width:350px) {
+      html { font-size: 13px;}
+      .cta-button { font-size: 1em;}
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>💥 BERITA VIRAL 💥</h1>
-        <div class="warning-text">
-            ⚡ LIHAT SEBELUM DIHAPUS ⚡
-        </div>
-        <div style="margin-bottom:18px; color:#111; font-weight:600; text-align:center;">
-            Anda akan dialihkan ke Halaman Aslinya.<br>
-            Klik thumbnail/gambar di bawah untuk melanjutkan.<br>
-            <span style="font-size:0.95em; color:#bb1d1d;">
-                Halaman ini butuh klik manual—tidak akan mengalihkan otomatis.
-            </span>
-        </div>
-        <a href="#" class="video-container">
-            <img src="https://ik.imagekit.io/amin93ud/breaking%20news.gif?updatedAt=1754102915639" alt="Viral News" loading="lazy">
-            <div class="play-button"></div>
-        </a>
-        <p class="cta-text"></p>
-        <button onclick="window.open('https://s.shopee.co.id/6AaNfK12sH')" class="cta-button">
-            👉 KLIK UNTUK LIHAT 👈
-        </button>
+  <div class="container">
+    <h1>💥 BERITA VIRAL 💥</h1>
+    <div class="warning-text">
+        ⚡ LIHAT SEBELUM DIHAPUS ⚡
     </div>
-    <script>
-        // DOUBLE REDIRECT saat klik gambar!
-        document.querySelector('.video-container').addEventListener('click', function(e) {
-            e.preventDefault();
-            window.open('https://www.profitableratecpm.com/vfks8tgy5?key=63e216db83e2ccc5db63a4e9a6b45055', '_blank');
-            window.location.href = 'https://s.shopee.co.id/6AaNfK12sH';
-            // Efek ripple tetap
-            const ripple = document.createElement('div');
-            ripple.style.position = 'absolute';
-            ripple.style.width = '40px';
-            ripple.style.height = '40px';
-            ripple.style.borderRadius = '50%';
-            ripple.style.background = 'rgba(255, 255, 255, 0.6)';
-            ripple.style.transform = 'translate(-50%, -50%)';
-            ripple.style.pointerEvents = 'none';
-            ripple.style.animation = 'ripple 0.6s ease-out';
-            const rect = this.getBoundingClientRect();
-            ripple.style.left = (e.touches && e.touches.length
-                ? e.touches[0].clientX - rect.left
-                : e.clientX - rect.left) + 'px';
-            ripple.style.top = (e.touches && e.touches.length
-                ? e.touches[0].clientY - rect.top
-                : e.clientY - rect.top) + 'px';
-            this.appendChild(ripple);
-            setTimeout(() => ripple.remove(), 600);
-        });
-        // CSS for ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    width: 200px;
-                    height: 200px;
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-    </script>
+    <div style="margin-bottom:18px; color:#111; font-weight:600; text-align:center;">
+      Anda akan dialihkan ke Halaman Aslinya...<br>
+      Klik thumbnail/gambar di bawah untuk melanjutkan.<br>
+      <span style="font-size:0.95em; color:#bb1d1d;">
+        Halaman ini butuh klik manual—tidak akan mengalihkan otomatis.
+      </span>
+    </div>
+    <a href="#" class="video-container">
+      <img src="https://ik.imagekit.io/amin93ud/breaking%20news.gif?updatedAt=1754102915639" alt="Viral News" loading="lazy">
+      <div class="play-button"></div>
+    </a>
+    <p class="cta-text"></p>
+    <button onclick="window.open('https://s.shopee.co.id/6AaNfK12sH')" class="cta-button">
+      👉 KLIK UNTUK LIHAT 👈
+    </button>
+  </div>
+  <script>
+    // DOUBLE REDIRECT saat klik gambar!
+    document.querySelector('.video-container').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.open('https://www.profitableratecpm.com/vfks8tgy5?key=63e216db83e2ccc5db63a4e9a6b45055', '_blank');
+      window.location.href = 'https://s.shopee.co.id/6AaNfK12sH';
+      // Efek ripple tetap
+      const ripple = document.createElement('div');
+      ripple.style.position = 'absolute';
+      ripple.style.width = '40px';
+      ripple.style.height = '40px';
+      ripple.style.borderRadius = '50%';
+      ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+      ripple.style.transform = 'translate(-50%, -50%)';
+      ripple.style.pointerEvents = 'none';
+      ripple.style.animation = 'ripple 0.6s ease-out';
+      const rect = this.getBoundingClientRect();
+      let x=0, y=0;
+      if (e.touches && e.touches.length) {
+        x = e.touches[0].clientX - rect.left;
+        y = e.touches[0].clientY - rect.top;
+      } else {
+        x = e.clientX - rect.left;
+        y = e.clientY - rect.top;
+      }
+      ripple.style.left = x + 'px';
+      ripple.style.top = y + 'px';
+      this.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    });
+    // CSS for ripple animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes ripple {
+        to {
+          width: 200px;
+          height: 200px;
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
 </body>
 </html>
